@@ -12,3 +12,4 @@ MyVector::MyVector(size_t size, double value) {
 		m_ptr[i] = value;
 	}
 }
+
