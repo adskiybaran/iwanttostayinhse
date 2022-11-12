@@ -1,23 +1,19 @@
 #include <iostream>
 #include "vector.h"
 
-int main() {
-	
-	MyVector vec1(5, 3.14);
-	MyVector vec2;
-	vec2 = vec1;
-
-	std::cout << "Hello World!\n";
-	vec2[3] = 10;
-
-	for (size_t i = 0; i < 5; ++i) {
-		std::cout << vec1[i] << ' ';
+void print(const MyVector& myvec) {
+	for (size_t i = 0; i < myvec.size(); ++i) {
+		std::cout << myvec[i] << ' ';
 	}
 	std::cout << '\n';
+}
 
-	for (size_t i = 0; i < 5; ++i) {
-		std::cout << vec2[i] << ' ';
-	}
-	
+int main() {
+	const MyVector vec1(10, 3.14);
+	MyVector vec2;
+	vec2 = vec1;
+	vec2[3] = 10;
+	print(vec1);
+	print(vec2);	
 	return 0;
 }
