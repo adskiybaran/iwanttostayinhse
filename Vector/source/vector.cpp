@@ -1,4 +1,5 @@
 #include "vector.h"
+#include <utility>
 
 /*
 Создаем массив на size элементов,
@@ -28,3 +29,8 @@ void MyVector::operator=(const MyVector& obj) {
 	m_ptr = tmp_ptr;
  	m_size = obj.m_size;
 }
+
+void MyVector::swap(MyVector& obj) {
+	std::swap(m_ptr, obj.m_ptr);
+	std::swap(m_size, obj.m_size);
+};

@@ -1,6 +1,6 @@
 #include "tests.h"
 
 int main() {
-	test1();
+	test_swap();
 	return 0;
 }

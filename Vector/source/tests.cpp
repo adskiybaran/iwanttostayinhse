@@ -19,3 +19,16 @@ void test1() {
 	print(vec1);
 	print(vec2);
 }
+
+void test_swap() {
+	MyVector vec1(10, 3.14);
+	MyVector vec2;
+	print(vec1);
+	print(vec2);
+	vec1.swap(vec2);
+	print(vec1);
+	print(vec2);
+	std::swap(vec1, vec2);
+	print(vec1);
+	print(vec2);
+}

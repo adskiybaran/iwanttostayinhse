@@ -11,6 +11,7 @@ public:
 	double& operator[](size_t i) { return m_ptr[i]; }
 	double operator[](size_t i) const { return m_ptr[i]; }
 	size_t size() const { return m_size; }
+	void swap(MyVector& obj);
 
 private:
 	double* m_ptr = nullptr;
