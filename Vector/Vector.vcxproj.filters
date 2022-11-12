@@ -21,10 +21,16 @@
     <ClCompile Include="source\vector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\tests.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\tests.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="source\vector.h">
-      <Filter>Source Files</Filter>
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

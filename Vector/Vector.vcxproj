@@ -21,8 +21,10 @@
   <ItemGroup>
     <ClCompile Include="source\main.cpp" />
     <ClCompile Include="source\vector.cpp" />
+    <ClCompile Include="source\tests.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\tests.h" />
     <ClInclude Include="source\vector.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
