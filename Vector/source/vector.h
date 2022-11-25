@@ -5,13 +5,16 @@ public:
 	MyVector() = default;
 	MyVector(size_t size, double value);
 	MyVector(const MyVector& obj);
-	~MyVector() { delete[] m_ptr; }
+	MyVector(MyVector&& obj) { swap(obj); }
+	~MyVector() { delete[] m_ptr; } 
 
 	MyVector& operator=(const MyVector& obj);
+	MyVector& operator=(MyVector&& obj) { swap(obj); return *this; }
 	double& operator[](size_t i) { return m_ptr[i]; }
 	double operator[](size_t i) const { return m_ptr[i]; }
 	size_t size() const { return m_size; }
 	void swap(MyVector& obj);
+	void push_back(double el);
 
 private:
 	double* m_ptr = nullptr;

@@ -32,3 +32,10 @@ void test_swap() {
 	print(vec1);
 	print(vec2);
 }
+
+void test_push_back() {
+	MyVector vec1(5, 1);
+	print(vec1);
+	vec1.push_back(2);
+	print(vec1);
+}
