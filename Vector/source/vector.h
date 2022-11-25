@@ -15,6 +15,8 @@ public:
 	size_t size() const { return m_size; }
 	void swap(MyVector& obj);
 	void push_back(double el);
+	bool empty() const { return m_size == 0; }
+	void clear();
 
 private:
 	double* m_ptr = nullptr;

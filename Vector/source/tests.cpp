@@ -54,3 +54,13 @@ void test_move(){
 	print(vec1);
 	print(vec2);
 }
+
+void test_empty_clear() {
+	MyVector vec1(5, 2.3);
+	std::cout << std::boolalpha;
+	std::cout << vec1.empty() << '\n';
+	print(vec1);
+	vec1.clear();
+	std::cout << vec1.empty() << '\n';
+	print(vec1);	
+}
