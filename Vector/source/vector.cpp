@@ -20,7 +20,10 @@ MyVector::MyVector(const MyVector& obj) {
 		m_ptr[i] = obj[i]; 
 }
 
-void MyVector::operator=(const MyVector& obj) {
+MyVector& MyVector::operator=(const MyVector& obj) {
+	if (&obj == this) {
+		return *this;
+	}
 	double* tmp_ptr = new double[obj.m_size];
 	for (size_t i = 0; i < obj.m_size; ++i)
 		tmp_ptr[i] = obj[i];
@@ -28,6 +31,7 @@ void MyVector::operator=(const MyVector& obj) {
 	delete[] m_ptr;
 	m_ptr = tmp_ptr;
  	m_size = obj.m_size;
+	return *this;
 }
 
 void MyVector::swap(MyVector& obj) {

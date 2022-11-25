@@ -7,7 +7,7 @@ public:
 	MyVector(const MyVector& obj);
 	~MyVector() { delete[] m_ptr; }
 
-	void operator=(const MyVector& obj);
+	MyVector& operator=(const MyVector& obj);
 	double& operator[](size_t i) { return m_ptr[i]; }
 	double operator[](size_t i) const { return m_ptr[i]; }
 	size_t size() const { return m_size; }
