@@ -5,6 +5,10 @@
 
 
 void print(const MyVector& myvec) {
+	if (myvec.size() == 0) {
+		std::cout << "Empty!\n";
+		return;
+	}
 	for (size_t i = 0; i < myvec.size(); ++i) {
 		std::cout << myvec[i] << ' ';
 	}
@@ -38,4 +42,15 @@ void test_push_back() {
 	print(vec1);
 	vec1.push_back(2);
 	print(vec1);
+}
+
+void test_move(){
+	MyVector vec1(5, 2.3);
+	print(vec1);
+	vec1 = { 3, 4 };
+	print(vec1);
+
+	MyVector vec2 = static_cast<MyVector&&>(vec1);
+	print(vec1);
+	print(vec2);
 }
