@@ -17,3 +17,5 @@ private:
 	double* m_ptr = nullptr;
 	size_t m_size = 0;
 };
+
+inline void swap(MyVector& obj1, MyVector& obj2){ obj1.swap(obj2);}

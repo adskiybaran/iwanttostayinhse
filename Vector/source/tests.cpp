@@ -28,7 +28,7 @@ void test_swap() {
 	vec1.swap(vec2);
 	print(vec1);
 	print(vec2);
-	std::swap(vec1, vec2);
+	swap(vec1, vec2);
 	print(vec1);
 	print(vec2);
 }
