@@ -3,6 +3,14 @@
 
 #include <iostream>
 
+void launch_tests() {
+	try {
+		test_shrek_2_fat();
+	}
+	catch (std::exception& ex) {
+		std::cout << ex.what();
+	}
+}
 
 void print(const MyVector& myvec) {
 	if (myvec.size() == 0) {
