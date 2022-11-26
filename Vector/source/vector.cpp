@@ -1,5 +1,6 @@
 #include "vector.h"
 #include <utility>
+#include <stdexcept>
 
 /*
 Создаем массив на size элементов,
@@ -58,6 +59,12 @@ void shrek::MyVector::push_back(double el){
 	
 	m_ptr[m_size] = el;
 	++m_size;
+}
+
+void shrek::MyVector::pop_back(){
+	if (m_size == 0)
+		throw std::runtime_error("Cannot pop_back empty vector");
+	--m_size;
 }
 
 void shrek::MyVector::resize(size_t size){

@@ -20,6 +20,7 @@ namespace shrek {
 		void shrek_2_fat();
 		void swap(MyVector& obj);
 		void push_back(double el);
+		void pop_back();
 		bool empty() const { return m_size == 0; }
 		void clear() { m_size = 0; }
 		void resize(size_t size);

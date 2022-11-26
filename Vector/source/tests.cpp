@@ -3,10 +3,13 @@
 
 #include <iostream>
 
+using namespace std::string_literals;
+
 void launch_tests() {
 	try {
 		test_shrek_2_fat();
 		test_initializer_list();
+		test_pop_back();
 	}
 	catch (std::exception& ex) {
 		std::cout << ex.what() << '\n';
@@ -51,6 +54,19 @@ void test_push_back() {
 	print(vec1);
 	vec1.push_back(2);
 	print(vec1);
+}
+
+void test_pop_back(){
+	try {
+		shrek::MyVector vec1;
+		vec1.pop_back();
+		print(vec1);
+	}
+	catch (std::runtime_error& ex) {
+		if (ex.what() != "Cannot pop_back empty vectors"s)
+			throw std::runtime_error(__FUNCTION__ ": Get unknow exception");
+	}
+	std::cout << __FUNCTION__ ": passed\n";
 }
 
 void test_move(){
