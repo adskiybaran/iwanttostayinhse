@@ -14,6 +14,17 @@ MyVector::MyVector(size_t size, double value) {
 	}
 }
 
+MyVector::MyVector(std::initializer_list<double> lst) {
+	reserve_utilities(lst.size(), false);
+	double* el_ptr = m_ptr;
+	for (double el: lst){
+		*el_ptr = el;
+		++el_ptr;
+	}
+	m_size = lst.size();
+}
+
+
 MyVector::MyVector(const MyVector& obj) {
 	m_ptr = new double[obj.m_size];
 	m_size = obj.m_size;
@@ -33,7 +44,6 @@ MyVector& MyVector::operator=(const MyVector& obj) {
 	m_size = obj.m_size;
 	return *this;
 }
-
 
 
 void MyVector::swap(MyVector& obj) {

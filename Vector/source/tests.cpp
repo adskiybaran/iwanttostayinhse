@@ -6,9 +6,10 @@
 void launch_tests() {
 	try {
 		test_shrek_2_fat();
+		test_initializer_list();
 	}
 	catch (std::exception& ex) {
-		std::cout << ex.what();
+		std::cout << ex.what() << '\n';
 	}
 }
 
@@ -141,8 +142,24 @@ void test_shrek_2_fat(){
 	vec1.shrek_2_fat();
 	if (vec1.capacity() != 6)
 		throw std::runtime_error(__FUNCTION__ ": wrong capacity");
-	MyVector vec2(6, 1);
+	MyVector vec2 = {1, 1, 1, 1, 1, 2};
 	if (vec1 != vec2)
 		throw std::runtime_error(__FUNCTION__ ": vectors not equal");
+	std::cout << __FUNCTION__ ": passed\n";
+}
+
+void test_initializer_list() {
+	MyVector vec1 = { 1, 2, 3, 4 };
+
+	vec1.resize(2);
+	if (vec1.size() != 2 || vec1.capacity() != 4) {
+		throw std::runtime_error(__FUNCTION__ ": wrong size or capacity (2)");
+	}
+
+	vec1.resize(7);
+	if (vec1.size() != 7 || vec1.capacity() != 7) {
+		throw std::runtime_error(__FUNCTION__ ": wrong size or capacity (7)");
+	}
+
 	std::cout << __FUNCTION__ ": passed\n";
 }

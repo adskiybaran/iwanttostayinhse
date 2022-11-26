@@ -1,9 +1,11 @@
 #pragma once
+#include <initializer_list>
 
 class MyVector {
 public:
 	MyVector() = default;
-	MyVector(size_t size, double value);
+	MyVector(size_t size, double value = 0);
+	MyVector(std::initializer_list<double> lst);
 	MyVector(const MyVector& obj);
 	MyVector(MyVector&& obj) { swap(obj); }
 	~MyVector() { delete[] m_ptr; } 

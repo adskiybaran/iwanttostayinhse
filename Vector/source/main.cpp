@@ -9,5 +9,6 @@ int main() {
 	test_reserve();
 	*/
 	launch_tests();
+
 	return 0;
 }
