@@ -5,7 +5,7 @@
 Создаем массив на size элементов,
 каждый из которых со значением value.
 */
-MyVector::MyVector(size_t size, double value) {
+shrek::MyVector::MyVector(size_t size, double value) {
 	m_ptr = new double[size];
 	m_size = size;
 	m_capacity = size;
@@ -14,7 +14,7 @@ MyVector::MyVector(size_t size, double value) {
 	}
 }
 
-MyVector::MyVector(std::initializer_list<double> lst) {
+shrek::MyVector::MyVector(std::initializer_list<double> lst) {
 	reserve_utilities(lst.size(), false);
 	double* el_ptr = m_ptr;
 	for (double el: lst){
@@ -25,7 +25,7 @@ MyVector::MyVector(std::initializer_list<double> lst) {
 }
 
 
-MyVector::MyVector(const MyVector& obj) {
+shrek::MyVector::MyVector(const MyVector& obj) {
 	m_ptr = new double[obj.m_size];
 	m_size = obj.m_size;
 	m_capacity = obj.m_size;
@@ -33,7 +33,7 @@ MyVector::MyVector(const MyVector& obj) {
 		m_ptr[i] = obj[i]; 
 }
 
-MyVector& MyVector::operator=(const MyVector& obj) {
+shrek::MyVector& shrek::MyVector::operator=(const MyVector& obj) {
 	if (&obj == this) {
 		return *this;
 	}
@@ -46,13 +46,13 @@ MyVector& MyVector::operator=(const MyVector& obj) {
 }
 
 
-void MyVector::swap(MyVector& obj) {
+void shrek::MyVector::swap(MyVector& obj) {
 	std::swap(m_ptr, obj.m_ptr);
 	std::swap(m_size, obj.m_size);
 	std::swap(m_capacity, obj.m_capacity);
 }
 
-void MyVector::push_back(double el){
+void shrek::MyVector::push_back(double el){
 	if (m_size + 1 > m_capacity)
 		reserve(2 * m_capacity);
 	
@@ -60,7 +60,7 @@ void MyVector::push_back(double el){
 	++m_size;
 }
 
-void MyVector::resize(size_t size){
+void shrek::MyVector::resize(size_t size){
 	reserve_utilities(size, true);
 	for (size_t i = m_size; i < size; ++i) {
 		m_ptr[i] = double();
@@ -68,7 +68,7 @@ void MyVector::resize(size_t size){
 	m_size = size;
 }
 
-void MyVector::reserve_utilities(size_t capacity, bool flag){
+void shrek::MyVector::reserve_utilities(size_t capacity, bool flag){
 	if (capacity <= m_capacity) {
 		return;
 	}
@@ -81,7 +81,7 @@ void MyVector::reserve_utilities(size_t capacity, bool flag){
 	m_capacity = capacity;
 }
 
-void MyVector::shrek_2_fat() {
+void shrek::MyVector::shrek_2_fat() {
 	if (m_capacity == m_size)
 		return;
 	double* tmp_ptr = new double[m_size];
@@ -94,7 +94,7 @@ void MyVector::shrek_2_fat() {
 	m_capacity = m_size;
 }
 
-bool operator==(const MyVector& obj1, const MyVector& obj2){
+bool shrek::operator==(const MyVector& obj1, const MyVector& obj2){
 	if (obj1.size() != obj2.size())
 		return false;
 	for (size_t i = 0; i < obj1.size(); ++i) {
