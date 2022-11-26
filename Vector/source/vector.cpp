@@ -26,20 +26,15 @@ MyVector& MyVector::operator=(const MyVector& obj) {
 	if (&obj == this) {
 		return *this;
 	}
-	
-	if (m_capacity < obj.m_size) {
-		double* tmp_ptr = new double[obj.m_size];
-		delete[] m_ptr;
-		m_ptr = tmp_ptr;
-		m_capacity = obj.m_size;
-	}
-
+	reserve_utilities(obj.m_size, false);
 	for (size_t i = 0; i < obj.m_size; ++i)
 		m_ptr[i] = obj[i];
 
 	m_size = obj.m_size;
 	return *this;
 }
+
+
 
 void MyVector::swap(MyVector& obj) {
 	std::swap(m_ptr, obj.m_ptr);
@@ -48,18 +43,22 @@ void MyVector::swap(MyVector& obj) {
 }
 
 void MyVector::push_back(double el){
-	if (m_size + 1 > m_capacity) {
-		double* tmp_ptr = new double[2 * m_size];
-		
-		for (size_t i = 0; i < m_size; ++i) {
-			tmp_ptr[i] = m_ptr[i];
-		}
-		
-		delete[] m_ptr;
-		m_ptr = tmp_ptr;
-		m_capacity = 2 * m_size;
-	}
+	if (m_size + 1 > m_capacity)
+		reserve(2 * m_capacity);
 	
 	m_ptr[m_size] = el;
 	++m_size;
+}
+
+void MyVector::reserve_utilities(size_t capacity, bool flag){
+	if (capacity <= m_capacity) {
+		return;
+	}
+	double* tmp_ptr = new double[capacity];
+	if (flag)
+		for (size_t i = 0; i < m_size; ++i)
+			tmp_ptr[i] = m_ptr[i];
+	delete[] m_ptr;
+	m_ptr = tmp_ptr;
+	m_capacity = capacity;
 }

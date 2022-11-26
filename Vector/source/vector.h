@@ -14,11 +14,14 @@ public:
 	double operator[](size_t i) const { return m_ptr[i]; }
 	size_t size() const { return m_size; }
 	size_t capacity() const { return m_capacity; }
+	void reserve(size_t capacity) {reserve_utilities(capacity, true);}
 	void swap(MyVector& obj);
 	void push_back(double el);
 	bool empty() const { return m_size == 0; }
 	void clear() { m_size = 0; }
 
+private:
+	void reserve_utilities(size_t capacity, bool flag);
 private:
 	double* m_ptr = nullptr;
 	size_t m_capacity = 0;

@@ -104,3 +104,23 @@ void test_capacity() {
 	std::cout << '\n';
 
 }
+
+void test_reserve(){
+	MyVector vec1;
+	std::cout << vec1.size() << ' ' << vec1.capacity() << '\n';
+	print(vec1);
+	std::cout << '\n';
+
+	vec1.reserve(2);
+	std::cout << vec1.size() << ' ' << vec1.capacity() << '\n';
+	print(vec1);
+	std::cout << '\n';
+
+	vec1.push_back(1);
+	vec1.push_back(2);
+
+	std::cout << vec1.size() << ' ' << vec1.capacity() << '\n';
+	print(vec1);
+	std::cout << '\n';
+
+}
