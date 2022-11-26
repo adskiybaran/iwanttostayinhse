@@ -64,3 +64,43 @@ void test_empty_clear() {
 	std::cout << vec1.empty() << '\n';
 	print(vec1);	
 }
+
+void test_capacity() {
+	MyVector vec1(5, 2.3);
+	std::cout << vec1.size() << ' ' << vec1.capacity() << '\n';
+	print(vec1);
+	std::cout << '\n';
+	
+	vec1.push_back(228.337);
+	std::cout << vec1.size() << ' ' << vec1.capacity() << '\n';
+	print(vec1);
+	std::cout << '\n';
+	
+	vec1.push_back(215.47);
+	std::cout << vec1.size() << ' ' << vec1.capacity() << '\n';
+	print(vec1);
+	std::cout << '\n';
+
+	vec1.clear();
+	std::cout << vec1.size() << ' ' << vec1.capacity() << '\n';
+	print(vec1);
+	std::cout << '\n';
+
+	vec1 = MyVector(5, 2.28);
+	std::cout << vec1.size() << ' ' << vec1.capacity() << '\n';
+	print(vec1);
+	std::cout << '\n';
+
+	MyVector vec2{3, 1.}, vec3{6, 2.};
+	//
+	vec1 = vec2;
+	std::cout << vec1.size() << ' ' << vec1.capacity() << '\n';
+	print(vec1);
+	std::cout << '\n';
+	//
+	vec1 = vec3;
+	std::cout << vec1.size() << ' ' << vec1.capacity() << '\n';
+	print(vec1);
+	std::cout << '\n';
+
+}

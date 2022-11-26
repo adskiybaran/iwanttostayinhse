@@ -13,13 +13,15 @@ public:
 	double& operator[](size_t i) { return m_ptr[i]; }
 	double operator[](size_t i) const { return m_ptr[i]; }
 	size_t size() const { return m_size; }
+	size_t capacity() const { return m_capacity; }
 	void swap(MyVector& obj);
 	void push_back(double el);
 	bool empty() const { return m_size == 0; }
-	void clear();
+	void clear() { m_size = 0; }
 
 private:
 	double* m_ptr = nullptr;
+	size_t m_capacity = 0;
 	size_t m_size = 0;
 };
 

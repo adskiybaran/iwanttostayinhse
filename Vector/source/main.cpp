@@ -5,7 +5,9 @@ int main() {
 	test_swap();
 	test_push_back();
 	test_move();
-	*/
 	test_empty_clear();
+	*/
+	
+	test_capacity();
 	return 0;
 }
