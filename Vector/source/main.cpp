@@ -7,7 +7,9 @@ int main() {
 	test_move();
 	test_empty_clear();
 	test_capacity();
-	*/
 	test_reserve();
+	*/
+
+	test_shrek_2_fat();
 	return 0;
 }

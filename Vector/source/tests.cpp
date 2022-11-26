@@ -124,3 +124,16 @@ void test_reserve(){
 	std::cout << '\n';
 
 }
+
+void test_shrek_2_fat(){
+	MyVector vec1(5, 1);
+	std::cout << vec1.size() << ' ' << vec1.capacity() << '\n';
+	print(vec1);
+	std::cout << '\n';
+
+	vec1.push_back(2);
+	vec1.shrek_2_fat();
+	std::cout << vec1.size() << ' ' << vec1.capacity() << '\n';
+	print(vec1);
+	std::cout << '\n';
+}

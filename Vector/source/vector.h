@@ -15,6 +15,7 @@ public:
 	size_t size() const { return m_size; }
 	size_t capacity() const { return m_capacity; }
 	void reserve(size_t capacity) {reserve_utilities(capacity, true);}
+	void shrek_2_fat();
 	void swap(MyVector& obj);
 	void push_back(double el);
 	bool empty() const { return m_size == 0; }
