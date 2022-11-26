@@ -1,5 +1,5 @@
 #include "tests.h"
-#include "vector.h"
+#include "vector_utilities.h"
 
 #include <iostream>
 
@@ -10,6 +10,7 @@ void launch_tests() {
 		test_shrek_2_fat();
 		test_initializer_list();
 		test_pop_back();
+		test_cout();
 	}
 	catch (std::exception& ex) {
 		std::cout << ex.what() << '\n';
@@ -63,7 +64,7 @@ void test_pop_back(){
 		print(vec1);
 	}
 	catch (std::runtime_error& ex) {
-		if (ex.what() != "Cannot pop_back empty vectors"s)
+		if (ex.what() != "Cannot pop_back empty vector"s)
 			throw std::runtime_error(__FUNCTION__ ": Get unknow exception");
 	}
 	std::cout << __FUNCTION__ ": passed\n";
@@ -178,4 +179,12 @@ void test_initializer_list() {
 	}
 
 	std::cout << __FUNCTION__ ": passed\n";
+}
+
+void test_cout() {
+
+	shrek::MyVector vec = { 2, 3 };
+
+	std::cout << vec << "\n";
+
 }

@@ -12,3 +12,4 @@ void test_capacity();
 void test_reserve();
 void test_shrek_2_fat();
 void test_initializer_list();
+void test_cout();

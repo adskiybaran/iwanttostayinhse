@@ -1,5 +1,6 @@
 #pragma once
 #include <initializer_list>
+
 namespace shrek {
 	class MyVector {
 	public:
@@ -38,4 +39,5 @@ namespace shrek {
 	inline bool operator!=(const MyVector& obj1, const MyVector& obj2) {
 		return !(obj1 == obj2);
 	}
+
 }
