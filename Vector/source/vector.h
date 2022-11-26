@@ -30,3 +30,7 @@ private:
 };
 
 inline void swap(MyVector& obj1, MyVector& obj2){ obj1.swap(obj2);}
+bool operator==(const MyVector& obj1, const MyVector& obj2);
+inline bool operator!=(const MyVector& obj1, const MyVector& obj2){
+	return !(obj1 == obj2);
+}

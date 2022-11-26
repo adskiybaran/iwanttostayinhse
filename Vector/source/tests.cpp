@@ -127,13 +127,14 @@ void test_reserve(){
 
 void test_shrek_2_fat(){
 	MyVector vec1(5, 1);
-	std::cout << vec1.size() << ' ' << vec1.capacity() << '\n';
-	print(vec1);
-	std::cout << '\n';
-
 	vec1.push_back(2);
+	if (vec1.capacity() != 10)
+		throw std::runtime_error(__FUNCTION__ ": wrong capacity");
 	vec1.shrek_2_fat();
-	std::cout << vec1.size() << ' ' << vec1.capacity() << '\n';
-	print(vec1);
-	std::cout << '\n';
+	if (vec1.capacity() != 6)
+		throw std::runtime_error(__FUNCTION__ ": wrong capacity");
+	MyVector vec2(6, 1);
+	if (vec1 != vec2)
+		throw std::runtime_error(__FUNCTION__ ": vectors not equal");
+	std::cout << __FUNCTION__ ": passed\n";
 }

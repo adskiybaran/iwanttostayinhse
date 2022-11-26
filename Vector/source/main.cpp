@@ -1,5 +1,5 @@
 #include "tests.h"
-
+#include <iostream>
 int main() {
 	/*
 	test_swap();
@@ -9,7 +9,11 @@ int main() {
 	test_capacity();
 	test_reserve();
 	*/
-
-	test_shrek_2_fat();
+	try {
+		test_shrek_2_fat();
+	}
+	catch(std::exception& ex){
+		std::cout << ex.what();
+	}
 	return 0;
 }

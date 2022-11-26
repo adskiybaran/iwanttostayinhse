@@ -75,3 +75,13 @@ void MyVector::shrek_2_fat() {
 	m_ptr = tmp_ptr;
 	m_capacity = m_size;
 }
+
+bool operator==(const MyVector& obj1, const MyVector& obj2){
+	if (obj1.size() != obj2.size())
+		return false;
+	for (size_t i = 0; i < obj1.size(); ++i) {
+		if (obj1[i] != obj2[i])
+			return false;
+	}
+	return true;
+}
