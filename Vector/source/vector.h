@@ -20,6 +20,7 @@ public:
 	void push_back(double el);
 	bool empty() const { return m_size == 0; }
 	void clear() { m_size = 0; }
+	void resize(size_t size);
 
 private:
 	void reserve_utilities(size_t capacity, bool flag);

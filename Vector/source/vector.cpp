@@ -50,6 +50,14 @@ void MyVector::push_back(double el){
 	++m_size;
 }
 
+void MyVector::resize(size_t size){
+	reserve_utilities(size, true);
+	for (size_t i = m_size; i < size; ++i) {
+		m_ptr[i] = double();
+	}
+	m_size = size;
+}
+
 void MyVector::reserve_utilities(size_t capacity, bool flag){
 	if (capacity <= m_capacity) {
 		return;
