@@ -1,112 +1,48 @@
-#include "vector.h"
-#include <utility>
+#include "matrix.h"
 #include <stdexcept>
 
-/*
-Создаем массив на size элементов,
-каждый из которых со значением value.
-*/
-shrek::MyVector::MyVector(size_t size, double value) {
-	m_ptr = new double[size];
-	m_size = size;
-	m_capacity = size;
-	for (size_t i = 0; i < size; ++i) {
-		m_ptr[i] = value;
+
+iwanttostayinhse::Matrix::Matrix(size_t rows, size_t columns){
+	m_rows = rows;
+	m_cols = columns;
+	m_ptr = new double[m_rows * m_cols];
+}
+
+size_t iwanttostayinhse::Matrix::rows() const{
+	return m_rows;
+}
+
+size_t iwanttostayinhse::Matrix::columns() const{
+	return m_cols;
+}
+
+bool iwanttostayinhse::Matrix::empty(){
+	return (m_cols == 0 || m_rows == 0);
+}
+
+iwanttostayinhse::Matrix::Matrix(const Matrix& m){
+	m_rows = m.rows();
+	m_cols = m.columns();
+	m_ptr = new double[m_rows * m_cols];
+	for (size_t i = 0; i < m_rows * m_cols; i++)
+	{
+		m_ptr[i] = m.m_ptr[i];
 	}
 }
 
-shrek::MyVector::MyVector(std::initializer_list<double> lst) {
-	reserve_utilities(lst.size(), false);
-	double* el_ptr = m_ptr;
-	for (double el: lst){
-		*el_ptr = el;
-		++el_ptr;
-	}
-	m_size = lst.size();
-}
+iwanttostayinhse::Matrix& iwanttostayinhse::Matrix::operator=(const Matrix& m) {
+	Matrix temp(m);
+	std::swap(m_cols, temp.m_cols);
+	std::swap(m_rows, temp.m_rows);
+	std::swap(m_ptr, temp.m_ptr);
 
-
-shrek::MyVector::MyVector(const MyVector& obj) {
-	m_ptr = new double[obj.m_size];
-	m_size = obj.m_size;
-	m_capacity = obj.m_size;
-	for (size_t i = 0; i < m_size; ++i)
-		m_ptr[i] = obj[i]; 
-}
-
-shrek::MyVector& shrek::MyVector::operator=(const MyVector& obj) {
-	if (&obj == this) {
-		return *this;
-	}
-	reserve_utilities(obj.m_size, false);
-	for (size_t i = 0; i < obj.m_size; ++i)
-		m_ptr[i] = obj[i];
-
-	m_size = obj.m_size;
 	return *this;
 }
 
-
-void shrek::MyVector::swap(MyVector& obj) {
-	std::swap(m_ptr, obj.m_ptr);
-	std::swap(m_size, obj.m_size);
-	std::swap(m_capacity, obj.m_capacity);
+iwanttostayinhse::Matrix iwanttostayinhse::Matrix::reshape(size_t new_rows, size_t new_cols) {
+	if (m_cols * m_rows != new_cols * new_rows) throw std::runtime_error("Cannot save the number of elements");
+	m_rows = new_rows;
+	m_cols = new_cols;
+	return *this;
 }
 
-void shrek::MyVector::push_back(double el){
-	if (m_size + 1 > m_capacity)
-		reserve(2 * m_capacity);
-	
-	m_ptr[m_size] = el;
-	++m_size;
-}
-
-void shrek::MyVector::pop_back(){
-	if (m_size == 0)
-		throw std::runtime_error("Cannot pop_back empty vector");
-	--m_size;
-}
-
-void shrek::MyVector::resize(size_t size){
-	reserve_utilities(size, true);
-	for (size_t i = m_size; i < size; ++i) {
-		m_ptr[i] = double();
-	}
-	m_size = size;
-}
-
-void shrek::MyVector::reserve_utilities(size_t capacity, bool flag){
-	if (capacity <= m_capacity) {
-		return;
-	}
-	double* tmp_ptr = new double[capacity];
-	if (flag)
-		for (size_t i = 0; i < m_size; ++i)
-			tmp_ptr[i] = m_ptr[i];
-	delete[] m_ptr;
-	m_ptr = tmp_ptr;
-	m_capacity = capacity;
-}
-
-void shrek::MyVector::shrek_2_fat() {
-	if (m_capacity == m_size)
-		return;
-	double* tmp_ptr = new double[m_size];
-
-	for (size_t i = 0; i < m_size; ++i) {
-		tmp_ptr[i] = m_ptr[i];
-	}
-	delete[] m_ptr;
-	m_ptr = tmp_ptr;
-	m_capacity = m_size;
-}
-
-bool shrek::operator==(const MyVector& obj1, const MyVector& obj2){
-	if (obj1.size() != obj2.size())
-		return false;
-	for (size_t i = 0; i < obj1.size(); ++i) {
-		if (obj1[i] != obj2[i])
-			return false;
-	}
-	return true;
-}

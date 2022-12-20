@@ -20,14 +20,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\main.cpp" />
-    <ClCompile Include="source\vector.cpp" />
-    <ClCompile Include="source\tests.cpp" />
-    <ClCompile Include="source\vector_utilities.cpp" />
+    <ClCompile Include="source\matrix.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="source\tests.h" />
-    <ClInclude Include="source\vector.h" />
-    <ClInclude Include="source\vector_utilities.h" />
+    <ClInclude Include="source\matrix.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
